@@ -6,13 +6,14 @@ type AnimatedPolaroidType = {
   left: string
   degree: string
   top: string
+  zilyousss?: boolean
 }
 
-const AnimatedPolaroid = ({ imageUrl, alt, left, degree, top }: AnimatedPolaroidType) => {
+const AnimatedPolaroid = ({ imageUrl, alt, left, degree, top, zilyousss = false }: AnimatedPolaroidType) => {
   return (
-    <div style={{ transform: `rotate(${degree}deg)`, position: "relative", top }}>
+    <div className="anim-parent" style={{ transform: `rotate(${degree}deg)`, position: "relative", top }}>
       <div className="tn-atom__sbs-anim-wrapper" style={{ left }}>
-        <div className="tn-atom">
+        <div className={`tn-atom tn-atom-${zilyousss ? "zilyousss" : ""}`}>
           <img
             className="tn-atom__img"
             src="https://static.tildacdn.com/tild3138-3063-4833-b031-633933633361/polaroid.png"

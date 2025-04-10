@@ -21,6 +21,7 @@ function App() {
           left="180px"
           top="87px"
           alt="Полароидное фото"
+          zilyousss
         />
       </div>
 
