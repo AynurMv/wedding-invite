@@ -3,7 +3,9 @@ import { fileURLToPath } from "url"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import checker from "vite-plugin-checker"
+
 const __dirname = dirname(fileURLToPath(import.meta.url))
+
 export default defineConfig({
   build: {
     manifest: true,

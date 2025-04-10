@@ -1,0 +1,45 @@
+.tn-atom__sbs-anim-wrapper {
+  width: 370px;
+  position: relative;
+  transform-origin: center;
+  animation: swayPolaroid 7s ease-in-out infinite;
+}
+
+.tn-atom {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.tn-atom__img,
+.tn-atom__img2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.tn-atom__img {
+  z-index: 2;
+}
+
+.tn-atom__img2 {
+  z-index: 1;
+  width: 254px;
+  position: absolute;
+  top: 40px;
+  left: 48px;
+}
+
+@keyframes swayPolaroid {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}
