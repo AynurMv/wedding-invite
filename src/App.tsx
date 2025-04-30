@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import yorek from "./assets/kartinki/serdtse.svg"
+import animePhoto from "./assets/photo/anime.jpg"
 import aynurbekPhoto from "./assets/photo/Aynurbek2.png"
 import bolgarPhoto from "./assets/photo/bolgar.jpg"
 import ikeuPhoto from "./assets/photo/ikeu.jpg"
@@ -115,6 +116,44 @@ function App() {
             text="Если хотите подарить нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи"
           />
           <GuestForm />
+          <div
+            style={{
+              maxWidth: "520px",
+              textAlign: "center",
+              lineHeight: "81px",
+              fontFamily: "Pips",
+              position: "relative",
+            }}
+          >
+            <h1 style={{ margin: "0", marginTop: "100px" }}>Контакты</h1>
+            <img
+              className="samoletik"
+              src="https://static.tildacdn.com/tild3266-6164-4261-b438-323265386237/Group_95_1.svg"
+            />
+          </div>
+          <NormText
+            marginTop="30px"
+            maxWidth="520px"
+            text="Если вы приготовили для нас сюрприз, не забудьте предупредить об этом нашего свадебного организатора"
+          />
+          <NormText marginTop="20px" maxWidth="520px" text="Ольга: +7 (900) 000-00-00" />
+          <a href="https://t.me/zilya_mv">
+            <img
+              className="telega"
+              src="https://static.tildacdn.com/tild3136-3338-4235-b364-313135633861/Black_14.svg"
+            />
+          </a>
+          <ZurText marginTop="90px" maxWidth="520px" text="Будем вас ждать!" />
+          <img className="yorek" src={yorek} />
+          <AnimatedPolaroid
+            label="С большой любовью,"
+            label2="Айнур и Зиля"
+            imageUrl={animePhoto}
+            degree="-1"
+            left="0px"
+            top="20px"
+            fontSize="18px"
+          />
         </>
       )}
     </div>

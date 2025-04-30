@@ -15,6 +15,35 @@ h1 {
   font-weight: 500;
 }
 
+.samoletik {
+  width: 100px;
+  position: absolute;
+  top: 105px;
+  left: 200px;
+}
+
+.telega {
+  position: relative;
+  top: 20px;
+  width: 54px;
+}
+
+.yorek {
+  position: relative;
+  top: 20px;
+  animation: fastSmoothSway 5s ease-in-out infinite;
+}
+
+@keyframes fastSmoothSway {
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
 @font-face {
   font-family: "Pips";
   src: url(./assets/fonts/ofont.ru_PIPS.ttf);

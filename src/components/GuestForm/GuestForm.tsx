@@ -110,9 +110,9 @@ const GuestForm = () => {
           <Button
             label="Отправить"
             link=""
-            marginTop="10px"
+            marginTop="30px"
             onClick={handleSubmit}
-            width="130px"
+            width="100px"
             fontSize="16px"
             height="45px"
           />

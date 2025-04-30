@@ -3,10 +3,10 @@
   width: 100%;
   min-height: 90px;
   transform-origin: center;
-  animation: smoothSway 5s ease-in-out infinite;
+  animation: sheshekSway 5s ease-in-out infinite;
 }
 
-@keyframes smoothSway {
+@keyframes sheshekSway {
   0%,
   100% {
     transform: rotate(-4deg);
