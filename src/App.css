@@ -1,8 +1,40 @@
 .app {
+  font-family: "Pips";
+  color: #253759;
   position: relative;
   min-height: 600px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
+  height: 10000px;
+}
+
+h1 {
+  font-size: 52px;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Pips";
+  src: url(./assets/fonts/ofont.ru_PIPS.ttf);
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Museo";
+  src: url(./assets/fonts/spizdennie/light-Ofontru.woff) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "light";
+  src: url(./assets/fonts/light-Ofontru.woff) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }

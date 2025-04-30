@@ -1,0 +1,41 @@
+.schedule {
+  position: relative;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-left: 7vw;
+}
+
+.event-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.time {
+  font-size: 34px;
+  min-width: 60px;
+}
+
+.icon {
+  width: 55px;
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-title {
+  font-size: 34px;
+}
+
+.event-description {
+  font-family: "light";
+  font-size: 18px;
+  line-height: 28px;
+  margin-top: 10px;
+  max-width: 265px;
+  letter-spacing: 0.5px;
+}

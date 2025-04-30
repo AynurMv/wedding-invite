@@ -1,0 +1,94 @@
+.guest-form {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: "Museo";
+}
+
+.guest-form__title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.guest-form__subtitle {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.guest-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.guest-form__input {
+  height: 60px;
+  line-height: 1.33;
+  border: none;
+  border-bottom: 1px solid #253759;
+  color: #253759;
+  font-weight: 300;
+}
+
+.guest-form__input:focus {
+  outline: none;
+}
+
+.guest-form__group {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.guest-form__label {
+  font-size: 20px;
+}
+
+.guest-form__legend {
+  font-size: 20px;
+  line-height: 1.55;
+  margin-bottom: 3px;
+}
+
+.guest-form__hint {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 10px 0;
+}
+
+.guest-form__submit {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.guest-form__radio,
+.guest-form__checkbox {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  line-height: 2;
+}
+
+.guest-form__radio input,
+.guest-form__checkbox input {
+  border: 2px solid #000;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 20px;
+  margin: 0 10px 0 0;
+  opacity: 0.6;
+  position: relative;
+  transition: all 0.2s;
+  vertical-align: middle;
+  width: 20px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #253759;
+}

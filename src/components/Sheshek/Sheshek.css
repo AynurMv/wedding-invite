@@ -1,0 +1,17 @@
+.sheshek img {
+  position: relative;
+  width: 100%;
+  min-height: 90px;
+  transform-origin: center;
+  animation: smoothSway 5s ease-in-out infinite;
+}
+
+@keyframes smoothSway {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}

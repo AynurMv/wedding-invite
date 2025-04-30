@@ -1,0 +1,15 @@
+.typing-container {
+  display: flex;
+  font-size: 34px;
+  font-weight: bold;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+
+  .type-writter {
+    position: relative;
+    top: -75px;
+    flex-direction: row;
+  }
+}
