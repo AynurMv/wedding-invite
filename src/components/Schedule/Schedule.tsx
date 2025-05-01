@@ -1,5 +1,7 @@
+import { motion } from "framer-motion"
+import { FC } from "react"
 import "./Schedule.css"
-const Schedule = () => {
+const Schedule: FC<{ xyAnimation: number; duration: number }> = ({ xyAnimation, duration }) => {
   const events = [
     {
       time: "15:30",
@@ -22,15 +24,43 @@ const Schedule = () => {
     <div className="schedule">
       {events.map((event, idx) => (
         <div key={idx} className="event-row">
-          <div className="time">{event.time}</div>
-          <img
-            src="https://static.tildacdn.com/tild6339-6536-4637-b732-323462356363/Group_93_1.svg"
-            alt="Звезда"
-            className="icon"
-          />
+          <motion.div
+            initial={{ opacity: 0, x: -xyAnimation }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: duration }}
+            viewport={{ once: true, amount: 1 }}
+          >
+            <div className="time">{event.time}</div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: duration }}
+            viewport={{ once: true, amount: 1 }}
+          >
+            <img
+              src="https://static.tildacdn.com/tild6339-6536-4637-b732-323462356363/Group_93_1.svg"
+              alt="Звезда"
+              className="icon"
+            />
+          </motion.div>
           <div className="event-info">
-            <div className="event-title">{event.title}</div>
-            <div className="event-description">{event.description}</div>
+            <motion.div
+              initial={{ opacity: 0, x: xyAnimation - 10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: duration }}
+              viewport={{ once: true, amount: 1 }}
+            >
+              <div className="event-title">{event.title}</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -xyAnimation }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: duration }}
+              viewport={{ once: true, amount: 1 }}
+            >
+              <div className="event-description">{event.description}</div>
+            </motion.div>
           </div>
         </div>
       ))}
