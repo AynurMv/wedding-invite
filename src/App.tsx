@@ -20,14 +20,15 @@ import ZurText from "./components/ZurText"
 import "./App.css"
 
 function App() {
-  const [animationCompleted, setAnimationCompleted] = useState(true)
+  const [animationCompleted, setAnimationCompleted] = useState(false)
+
   useEffect(() => {
     const timer = setTimeout(() => setAnimationCompleted(true), 5000)
     return () => clearTimeout(timer)
   }, [])
 
   const xyAnimation = 30
-  const duration = 1.2
+  const duration = 1
   const scale = 0.9
 
   return (
@@ -73,7 +74,7 @@ function App() {
             initial={{ opacity: 0, scale }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
+            viewport={{ once: true, amount: 0.9 }}
           >
             <ZurText marginTop="30px" maxWidth="420px" text="Айнур + Зиля" />
             <ZurText marginTop="10px" maxWidth="420px" text="=" lineHeight="58px" />
@@ -283,6 +284,7 @@ function App() {
             />
           </motion.div>
           <GuestForm xyAnimation={xyAnimation} duration={duration} />
+
           <div
             style={{
               maxWidth: "520px",

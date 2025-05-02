@@ -2,7 +2,18 @@
   max-width: 560px;
   margin: 0 auto;
   font-family: "Museo";
+  /* max-height: 0; */
+  /* opacity: 0; */
+  overflow: hidden;
+  transition:
+    max-height 0.5s ease,
+    opacity 0.5s ease;
 }
+/* 
+.guest-form.visible {
+  max-height: 1000px;
+  opacity: 1;
+} */
 
 .guest-form__title {
   text-align: center;
@@ -89,4 +100,12 @@
 input[type="checkbox"],
 input[type="radio"] {
   accent-color: #253759;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 500px;
+  justify-content: center;
 }

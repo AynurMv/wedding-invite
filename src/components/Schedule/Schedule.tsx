@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { FC } from "react"
 import "./Schedule.css"
 const Schedule: FC<{ xyAnimation: number; duration: number }> = ({ xyAnimation, duration }) => {
+  const lessXYAnimation = xyAnimation - 15
   const events = [
     {
       time: "15:30",
@@ -25,7 +26,7 @@ const Schedule: FC<{ xyAnimation: number; duration: number }> = ({ xyAnimation, 
       {events.map((event, idx) => (
         <div key={idx} className="event-row">
           <motion.div
-            initial={{ opacity: 0, x: -xyAnimation }}
+            initial={{ opacity: 0, x: -lessXYAnimation }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: duration }}
             viewport={{ once: true, amount: 1 }}
@@ -46,7 +47,7 @@ const Schedule: FC<{ xyAnimation: number; duration: number }> = ({ xyAnimation, 
           </motion.div>
           <div className="event-info">
             <motion.div
-              initial={{ opacity: 0, x: xyAnimation - 10 }}
+              initial={{ opacity: 0, x: lessXYAnimation - 10 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: duration }}
               viewport={{ once: true, amount: 1 }}
@@ -54,7 +55,7 @@ const Schedule: FC<{ xyAnimation: number; duration: number }> = ({ xyAnimation, 
               <div className="event-title">{event.title}</div>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: -xyAnimation }}
+              initial={{ opacity: 0, x: -lessXYAnimation }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: duration }}
               viewport={{ once: true, amount: 1 }}
