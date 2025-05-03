@@ -64,7 +64,7 @@ function App() {
                 imageUrl={zilyousssPhoto}
                 degree="10"
                 left="165px"
-                top="-435px"
+                top="-385px"
                 zilyousss
               />
             </motion.div>
@@ -76,7 +76,7 @@ function App() {
             transition={{ duration }}
             viewport={{ once: true, amount: 0.9 }}
           >
-            <ZurText marginTop="30px" maxWidth="420px" text="Айнур + Зиля" />
+            <ZurText marginTop="50px" maxWidth="420px" text="Айнур + Зиля" />
             <ZurText marginTop="10px" maxWidth="420px" text="=" lineHeight="58px" />
           </motion.div>
           <motion.div

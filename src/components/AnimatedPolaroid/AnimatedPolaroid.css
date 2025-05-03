@@ -3,6 +3,12 @@
   position: relative;
 }
 
+/* @media (max-width: 757px) {
+  .polaroid-wrapper {
+    width: 200px;
+  }
+} */
+
 .polaroid {
   position: relative;
   width: 100%;
