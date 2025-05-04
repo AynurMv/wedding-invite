@@ -16,7 +16,7 @@ import Sheshek from "./components/Sheshek"
 import Sizik from "./components/Sizik/Sizik"
 import TypingAnimation from "./components/TypingAnimation/TypingAnimation"
 import ZurText from "./components/ZurText/ZurText"
-import "./App.css"
+import "./App.scss"
 
 function App() {
   const [animationCompleted, setAnimationCompleted] = useState(false)

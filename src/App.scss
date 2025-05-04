@@ -1,0 +1,114 @@
+.app {
+  font-family: "Pips";
+  color: #253759;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+
+  .content {
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        font-size: 52px;
+        font-weight: 500;
+      }
+
+      .polaroids-container {
+        display: block;
+        height: 530px;
+        position: relative;
+        top: -33px;
+      }
+
+      .contacts {
+        max-width: 520px;
+        text-align: center;
+        line-height: 81px;
+        font-family: Pips;
+        position: relative;
+
+        h1 {
+          margin: 0;
+          margin-top: 100px;
+        }
+        .samoletik {
+          width: 100px;
+          position: absolute;
+          top: 105px;
+          left: 200px;
+        }
+      }
+
+      .telega {
+        position: relative;
+        top: 20px;
+        width: 54px;
+      }
+
+      .konets {
+        display: flex;
+        opacity: 1;
+        align-items: center;
+        flex-direction: column;
+
+        & .yorek {
+          position: relative;
+          top: 20px;
+          animation: fastSmoothSway 5s ease-in-out infinite;
+        }
+      }
+
+      .yildiz {
+        position: absolute;
+        width: 50px;
+        left: 400px;
+        top: -40px;
+        animation: fastSmoothSway 5s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+@keyframes fastSmoothSway {
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@font-face {
+  font-family: "Pips";
+  src: url(./assets/fonts/ofont.ru_PIPS.ttf);
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Museo";
+  src: url(./assets/fonts/spizdennie/light-Ofontru.woff) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "light";
+  src: url(./assets/fonts/light-Ofontru.woff) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
