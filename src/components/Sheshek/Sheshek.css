@@ -1,3 +1,10 @@
+.sheshek {
+  position: relative;
+  left: 0px;
+  top: 15px;
+  margin-bottom: 20px;
+}
+
 .sheshek img {
   position: relative;
   width: 100%;

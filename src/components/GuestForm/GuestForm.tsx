@@ -3,7 +3,7 @@ import { ChangeEventHandler, FC, FormEventHandler, useState } from "react"
 import Button from "../Button/Button" // Подключи свою кнопку
 import "./GuestForm.css"
 import NormText from "../NormText/NormText"
-import ZurText from "../ZurText"
+import ZurText from "../ZurText/ZurText"
 
 type FormData = {
   name: string

@@ -1,9 +1,9 @@
+import bolgarPhoto from "@assets/photo/bolgar.jpg"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import yorek from "./assets/kartinki/serdtse.svg"
 import animePhoto from "./assets/photo/anime.jpg"
 import aynurbekPhoto from "./assets/photo/Aynurbek2.png"
-import bolgarPhoto from "./assets/photo/bolgar.jpg"
 import ikeuPhoto from "./assets/photo/ikeu.jpg"
 import zilyousssPhoto from "./assets/photo/zilechka.jpg"
 import AnimatedPolaroid from "./components/AnimatedPolaroid"
@@ -15,8 +15,7 @@ import Schedule from "./components/Schedule/Schedule"
 import Sheshek from "./components/Sheshek"
 import Sizik from "./components/Sizik/Sizik"
 import TypingAnimation from "./components/TypingAnimation/TypingAnimation"
-import ZurText from "./components/ZurText"
-
+import ZurText from "./components/ZurText/ZurText"
 import "./App.css"
 
 function App() {
@@ -37,21 +36,14 @@ function App() {
         <TypingAnimation />
       ) : (
         <div className={`content ${animationCompleted ? "visible" : ""}`}>
-          <div style={{ display: "block", height: "530px", position: "relative", top: "-33px" }}>
+          <div className="polaroids-container">
             <motion.div
               initial={{ opacity: 0, x: -xyAnimation }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration }}
               viewport={{ once: true }}
             >
-              <AnimatedPolaroid
-                label="Айнур"
-                imageUrl={aynurbekPhoto}
-                degree="-10"
-                left="-170px"
-                top="17px"
-                photoTop="50px"
-              />
+              <AnimatedPolaroid label="Айнур" className="polaroid-aynur" imageUrl={aynurbekPhoto} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: xyAnimation }}
@@ -59,14 +51,7 @@ function App() {
               transition={{ duration }}
               viewport={{ once: true }}
             >
-              <AnimatedPolaroid
-                label="Зиля"
-                imageUrl={zilyousssPhoto}
-                degree="10"
-                left="165px"
-                top="-385px"
-                zilyousss
-              />
+              <AnimatedPolaroid label="Зиля" className="polaroid-zilya" imageUrl={zilyousssPhoto} />
             </motion.div>
           </div>
 
@@ -120,14 +105,7 @@ function App() {
               />
             </motion.div>
           </motion.div>
-          <AnimatedPolaroid
-            label="Сердца полны любви"
-            imageUrl={ikeuPhoto}
-            degree="-10"
-            left="0px"
-            top="40px"
-            fontSize="18px"
-          />
+          <AnimatedPolaroid className="polaroid-ikeu" label="Сердца полны любви" imageUrl={ikeuPhoto} />
           <motion.div
             initial={{ opacity: 0, x: -xyAnimation }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -174,14 +152,10 @@ function App() {
             viewport={{ once: true, amount: 0.5 }}
           >
             <AnimatedPolaroid
+              className="polaroid-bolgar"
               label="Банкетный зал «Болгар»"
               label2="в ресторане «Орловский дворец»"
               imageUrl={bolgarPhoto}
-              degree="-1"
-              left="0px"
-              top="-20px"
-              fontSize="18px"
-              notAnimated
             />
           </motion.div>
 
@@ -249,7 +223,7 @@ function App() {
             transition={{ duration }}
             viewport={{ once: true, amount: 1 }}
           >
-            <Sheshek left="0px" top="15px" marginBottom="20px" />
+            <Sheshek />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: -xyAnimation }}
@@ -269,7 +243,7 @@ function App() {
             transition={{ duration }}
             viewport={{ once: true, amount: 1 }}
           >
-            <Sizik margin="40px" width="400px" />
+            <Sizik />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: xyAnimation }}
@@ -285,22 +259,14 @@ function App() {
           </motion.div>
           <GuestForm xyAnimation={xyAnimation} duration={duration} />
 
-          <div
-            style={{
-              maxWidth: "520px",
-              textAlign: "center",
-              lineHeight: "81px",
-              fontFamily: "Pips",
-              position: "relative",
-            }}
-          >
+          <div className="contacts">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration }}
               viewport={{ once: true, amount: 1 }}
             >
-              <h1 style={{ margin: "0", marginTop: "100px" }}>Контакты</h1>
+              <h1>Контакты</h1>
               <img
                 className="samoletik"
                 src="https://static.tildacdn.com/tild3266-6164-4261-b438-323265386237/Group_95_1.svg"
@@ -349,21 +315,18 @@ function App() {
             <ZurText marginTop="90px" maxWidth="520px" text="Будем вас ждать!" />
           </motion.div>
           <motion.div
+            className="konets"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration }}
             viewport={{ once: true, amount: 0.3 }}
-            style={{ display: "flex", opacity: 1, alignItems: "center", flexDirection: "column" }}
           >
             <img className="yorek" src={yorek} />
             <AnimatedPolaroid
+              className="polaroid-anime"
               label="С большой любовью,"
               label2="Айнур и Зиля"
               imageUrl={animePhoto}
-              degree="-1"
-              left="0px"
-              top="20px"
-              fontSize="18px"
             />
           </motion.div>
         </div>

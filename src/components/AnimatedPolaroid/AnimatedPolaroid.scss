@@ -1,0 +1,135 @@
+.polaroid-container {
+  position: relative;
+  & .polaroid-wrapper {
+    width: 430px;
+    position: relative;
+
+    & .polaroid {
+      position: relative;
+      width: 100%;
+      min-height: 490px;
+      transform-origin: center;
+      animation: smoothSway 7s ease-in-out infinite;
+
+      & .polaroid-frame,
+      & .polaroid-photo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+      }
+
+      & .labels {
+        &.two {
+          position: relative;
+          top: -5px;
+        }
+        & .polaroid-label {
+          width: 100%;
+          z-index: 2;
+          position: absolute;
+          top: 367px;
+          left: -4px;
+          text-align: center;
+          font-size: 27px;
+          font-weight: 800;
+        }
+        & .polaroid-label2 {
+          top: 391px;
+        }
+      }
+
+      & .polaroid-frame {
+        z-index: 2;
+      }
+
+      & .polaroid-photo {
+        z-index: 1;
+        width: 289px;
+        position: absolute;
+        top: 40px;
+        left: 61px;
+      }
+
+      & .polaroid-photo {
+        top: 40px;
+      }
+      & .polaroid-label,
+      & .polaroid-label2 {
+        font-size: 27px;
+      }
+    }
+  }
+  &.polaroid-aynur {
+    top: 17px;
+    transform: rotate(-10deg);
+    & .polaroid-wrapper {
+      left: -170px;
+      & .polaroid-photo {
+        top: 50px;
+      }
+    }
+  }
+  &.polaroid-zilya {
+    top: -385px;
+    transform: rotate(10deg);
+    & .polaroid-wrapper {
+      left: 165px;
+      & .polaroid {
+        animation: smoothSway 7s ease-in-out infinite 0.7s;
+      }
+    }
+  }
+  &.polaroid-ikeu {
+    top: 40px;
+    transform: rotate(-10deg);
+    & .polaroid-wrapper {
+      left: 0px;
+      & .labels {
+        & .polaroid-label {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  &.polaroid-bolgar {
+    top: -20px;
+    transform: rotate(-1deg);
+    & .polaroid-wrapper {
+      left: 0px;
+      & .polaroid {
+        animation: none;
+      }
+      & .labels {
+        & .polaroid-label,
+        & .polaroid-label2 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  &.polaroid-anime {
+    top: 20px;
+    transform: rotate(-1deg);
+    & .polaroid-wrapper {
+      left: 0px;
+      & .labels {
+        & .polaroid-label,
+        & .polaroid-label2 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes smoothSway {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}

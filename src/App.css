@@ -25,6 +25,19 @@ h1 {
   font-weight: 500;
 }
 
+.contacts {
+  max-width: 520px;
+  text-align: center;
+  line-height: 81px;
+  font-family: Pips;
+  position: relative;
+}
+
+.contacts h1 {
+  margin: 0;
+  margin-top: 100px;
+}
+
 .samoletik {
   width: 100px;
   position: absolute;
@@ -36,6 +49,13 @@ h1 {
   position: relative;
   top: 20px;
   width: 54px;
+}
+
+.konets {
+  display: flex;
+  opacity: 1;
+  align-items: center;
+  flex-direction: column;
 }
 
 .yorek {
@@ -50,6 +70,13 @@ h1 {
   left: 400px;
   top: -40px;
   animation: fastSmoothSway 5s ease-in-out infinite;
+}
+
+.polaroids-container {
+  display: block;
+  height: 530px;
+  position: relative;
+  top: -33px;
 }
 
 @keyframes fastSmoothSway {

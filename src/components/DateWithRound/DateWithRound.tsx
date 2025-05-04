@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { FC } from "react"
-import ZurText from "../ZurText"
+import ZurText from "../ZurText/ZurText"
 import "./DateWithRound.css"
 
 const DateWithRound: FC<{ top?: string }> = ({ top }) => (

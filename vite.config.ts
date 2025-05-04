@@ -26,7 +26,7 @@ export default defineConfig({
     alias: {
       "@src": resolve(__dirname, "./src"),
       "@shared": resolve(__dirname, "./src/shared"),
-      "@assets": resolve(__dirname, "./src/shared/assets"),
+      "@assets": resolve(__dirname, "./src/assets"),
       "@ui": resolve(__dirname, "./src/shared/ui"),
       "@features": resolve(__dirname, "./src/features"),
       "@pages": resolve(__dirname, "./src/pages"),
@@ -35,7 +35,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "./src/shared/assets/styles/variables.scss" as *;',
+        additionalData: '@use "@assets/styles/variables" as *;',
       },
     },
   },
