@@ -1,7 +1,7 @@
-import { motion } from "framer-motion"
 import { FC } from "react"
 import "./Schedule.css"
-const Schedule: FC<{ xyAnimation: number; duration: number }> = ({ xyAnimation, duration }) => {
+import AnimatedWrapper from "../AnimatedWrapper"
+const Schedule: FC<{ xyAnimation: number }> = ({ xyAnimation }) => {
   const lessXYAnimation = xyAnimation - 15
   const events = [
     {
@@ -25,43 +25,23 @@ const Schedule: FC<{ xyAnimation: number; duration: number }> = ({ xyAnimation, 
     <div className="schedule">
       {events.map((event, idx) => (
         <div key={idx} className="event-row">
-          <motion.div
-            initial={{ opacity: 0, x: -lessXYAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          <AnimatedWrapper x={-lessXYAnimation}>
             <div className="time">{event.time}</div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          </AnimatedWrapper>
+          <AnimatedWrapper>
             <img
               src="https://static.tildacdn.com/tild6339-6536-4637-b732-323462356363/Group_93_1.svg"
               alt="Звезда"
               className="icon"
             />
-          </motion.div>
+          </AnimatedWrapper>
           <div className="event-info">
-            <motion.div
-              initial={{ opacity: 0, x: lessXYAnimation - 10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: duration }}
-              viewport={{ once: true, amount: 1 }}
-            >
+            <AnimatedWrapper x={lessXYAnimation - 10}>
               <div className="event-title">{event.title}</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: -lessXYAnimation }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: duration }}
-              viewport={{ once: true, amount: 1 }}
-            >
+            </AnimatedWrapper>
+            <AnimatedWrapper x={-lessXYAnimation}>
               <div className="event-description">{event.description}</div>
-            </motion.div>
+            </AnimatedWrapper>
           </div>
         </div>
       ))}

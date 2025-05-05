@@ -1,3 +1,8 @@
+.date {
+  position: relative;
+  top: 57px;
+}
+
 .date img {
   position: absolute;
   top: -16px;

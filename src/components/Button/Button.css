@@ -5,6 +5,7 @@
   background-color: #a8c4dc;
   color: #ffffff;
   border: none;
+  margin-top: 20px;
   padding: 0px 24px;
   border-radius: 28px;
   font-size: 14px;
@@ -15,6 +16,13 @@
   justify-content: center;
   width: fit-content;
   max-width: 100%;
+}
+
+.route-button.submit {
+  margin-top: 30px;
+  width: 130px;
+  font-size: 16px;
+  height: 45px;
 }
 
 .route-button:hover {

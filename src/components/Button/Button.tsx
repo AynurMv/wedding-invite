@@ -5,23 +5,18 @@ const Button: FC<{
   type?: "button" | "submit" | "reset"
   label: string
   link?: string
-  marginTop: string
-  fontSize?: string
-  width?: string
-  height?: string
-}> = ({ type = "button", label, link, marginTop, width, fontSize, height }) => {
-  const style = { marginTop, width, fontSize, height }
-
+  className?: string
+}> = ({ type = "button", label, link, className }) => {
   if (link) {
     return (
-      <a href={link} target="_blank" rel="noopener noreferrer" className="route-button" style={style}>
+      <a href={link} target="_blank" rel="noopener noreferrer" className="route-button">
         {label}
       </a>
     )
   }
 
   return (
-    <button type={type} className="route-button" style={style}>
+    <button type={type} className={`route-button ${className ? className : ""}`}>
       {label}
     </button>
   )

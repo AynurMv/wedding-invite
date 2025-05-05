@@ -1,5 +1,4 @@
 import bolgarPhoto from "@assets/photo/bolgar.jpg"
-import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import yorek from "./assets/kartinki/serdtse.svg"
 import animePhoto from "./assets/photo/anime.jpg"
@@ -7,6 +6,7 @@ import aynurbekPhoto from "./assets/photo/Aynurbek2.png"
 import ikeuPhoto from "./assets/photo/ikeu.jpg"
 import zilyousssPhoto from "./assets/photo/zilechka.jpg"
 import AnimatedPolaroid from "./components/AnimatedPolaroid"
+import AnimatedWrapper from "./components/AnimatedWrapper"
 import Button from "./components/Button/Button"
 import DateWithRound from "./components/DateWithRound/DateWithRound"
 import GuestForm from "./components/GuestForm/GuestForm"
@@ -27,8 +27,15 @@ function App() {
   }, [])
 
   const xyAnimation = 30
-  const duration = 1
   const scale = 0.9
+
+  const textMaxWidthOne = "420px"
+  const maxWidthOne = "520px"
+  const maxWidthTwo = "580px"
+
+  const marginTop10 = "10px"
+  const marginTop20 = "20px"
+  const marginTop100 = "100px"
 
   return (
     <div className="app">
@@ -37,290 +44,148 @@ function App() {
       ) : (
         <div className={`content ${animationCompleted ? "visible" : ""}`}>
           <div className="polaroids-container">
-            <motion.div
-              initial={{ opacity: 0, x: -xyAnimation }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration }}
-              viewport={{ once: true }}
-            >
+            <AnimatedWrapper x={-xyAnimation}>
               <AnimatedPolaroid label="Айнур" className="polaroid-aynur" imageUrl={aynurbekPhoto} />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: xyAnimation }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration }}
-              viewport={{ once: true }}
-            >
+            </AnimatedWrapper>
+            <AnimatedWrapper x={xyAnimation} amount={0.1}>
               <AnimatedPolaroid label="Зиля" className="polaroid-zilya" imageUrl={zilyousssPhoto} />
-            </motion.div>
+            </AnimatedWrapper>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 0.9 }}
-          >
-            <ZurText marginTop="50px" maxWidth="420px" text="Айнур + Зиля" />
-            <ZurText marginTop="10px" maxWidth="420px" text="=" lineHeight="58px" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: xyAnimation }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          <AnimatedWrapper scale={scale}>
+            <ZurText marginTop="50px" maxWidth={textMaxWidthOne} text="Айнур + Зиля" />
+            <ZurText marginTop={marginTop10} maxWidth={textMaxWidthOne} text="=" lineHeight="58px" />
+          </AnimatedWrapper>
+          <AnimatedWrapper y={xyAnimation}>
             <img src={yorek} />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: -xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
-            <ZurText marginTop="20px" maxWidth="420px" text="Узнали?" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          </AnimatedWrapper>
+          <AnimatedWrapper x={-xyAnimation}>
+            <ZurText marginTop={marginTop20} maxWidth={textMaxWidthOne} text="Узнали?" />
+          </AnimatedWrapper>
+          <AnimatedWrapper x={xyAnimation}>
             <NormText
-              marginTop="20px"
-              maxWidth="420px"
+              marginTop={marginTop20}
+              maxWidth={textMaxWidthOne}
               text="Время пронеслось незаметно и у этих двух милых деток скоро свадьба!"
             />
-            <NormText marginTop="0px" maxWidth="420px" text="Да-да, мы сами в шоке!" />
-            <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration }}
-              viewport={{ once: true, amount: 1 }}
-              style={{ position: "relative" }}
-            >
+            <NormText marginTop="0px" maxWidth={textMaxWidthOne} text="Да-да, мы сами в шоке!" />
+            <AnimatedWrapper x={-10} relative>
               <img
                 className="yildiz"
                 src="https://static.tildacdn.com/tild6339-6536-4637-b732-323462356363/Group_93_1.svg"
               />
-            </motion.div>
-          </motion.div>
+            </AnimatedWrapper>
+          </AnimatedWrapper>
           <AnimatedPolaroid className="polaroid-ikeu" label="Сердца полны любви" imageUrl={ikeuPhoto} />
-          <motion.div
-            initial={{ opacity: 0, x: -xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
-            <ZurText marginTop="20px" maxWidth="520px" text="Дорогие и любимые" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          <AnimatedWrapper x={-xyAnimation}>
+            <ZurText marginTop={marginTop20} maxWidth={maxWidthOne} text="Дорогие и любимые" />
+          </AnimatedWrapper>
+          <AnimatedWrapper x={xyAnimation}>
             <NormText
-              marginTop="20px"
-              maxWidth="520px"
+              marginTop={marginTop20}
+              maxWidth={maxWidthOne}
               text="Наша свадьба без вас не будет такой счастливой, уютной и веселой!"
             />
             <NormText marginTop="0px" maxWidth="620px" text="Приглашаем отметить этот день вместе с нами!" />
-          </motion.div>
-          <DateWithRound top="57px" />
-          <motion.div
-            initial={{ opacity: 0, scale }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 0.7 }}
-          >
-            <ZurText marginTop="160px" maxWidth="420px" text="Программа дня" />
-          </motion.div>
-          <Schedule xyAnimation={xyAnimation} duration={duration} />
-          <motion.div
-            initial={{ opacity: 0, x: xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
-            <ZurText marginTop="200px" maxWidth="520px" text="Место проведения" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 0.5 }}
-          >
+          </AnimatedWrapper>
+          <DateWithRound />
+          <AnimatedWrapper scale={scale}>
+            <ZurText marginTop="160px" maxWidth={textMaxWidthOne} text="Программа дня" />
+          </AnimatedWrapper>
+          <Schedule xyAnimation={xyAnimation} />
+          <AnimatedWrapper x={xyAnimation}>
+            <ZurText marginTop="200px" maxWidth={maxWidthOne} text="Место проведения" />
+          </AnimatedWrapper>
+          <AnimatedWrapper amount={0.5}>
             <AnimatedPolaroid
               className="polaroid-bolgar"
               label="Банкетный зал «Болгар»"
               label2="в ресторане «Орловский дворец»"
               imageUrl={bolgarPhoto}
             />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          </AnimatedWrapper>
+          <AnimatedWrapper x={xyAnimation}>
             <NormText
               marginTop="0px"
               maxWidth="320px"
               text="Мы ждем вас на берегу озера Сенеж в загородном комплексе The Sun Event"
             />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          </AnimatedWrapper>
+          <AnimatedWrapper>
             <Button
-              marginTop="20px"
               label="ПОСТРОИТЬ МАРШРУТ"
               link="https://yandex.ru/maps/org/orlovskiy_dvorets/107504788052?si=qukqvxb8mb5v0kefr2rvnxwjd0"
             />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
-            <ZurText marginTop="100px" maxWidth="520px" text="Дресс-код" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: -xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          </AnimatedWrapper>
+          <AnimatedWrapper>
+            <ZurText marginTop={marginTop100} maxWidth={maxWidthOne} text="Дресс-код" />
+          </AnimatedWrapper>
+          <AnimatedWrapper x={-xyAnimation}>
             <NormText
-              marginTop="10px"
-              maxWidth="580px"
+              marginTop={marginTop10}
+              maxWidth={maxWidthTwo}
               text="Дорогие друзья! Мы будем счастливы видеть вас на нашей свадьбе в том, в чём вам удобно и приятно — мы не устанавливаем дресс-код"
             />
             <NormText
               marginTop="5px"
-              maxWidth="580px"
+              maxWidth={maxWidthTwo}
               text="Единственная просьба: по возможности избегайте слишком ярких цветов, чтобы атмосфера праздника осталась нежной и уютной"
             />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
-            <ZurText marginTop="100px" maxWidth="520px" text="Пожелания" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          </AnimatedWrapper>
+          <AnimatedWrapper x={xyAnimation}>
+            <ZurText marginTop={marginTop100} maxWidth={maxWidthOne} text="Пожелания" />
+          </AnimatedWrapper>
+          <AnimatedWrapper>
             <Sheshek />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: -xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          </AnimatedWrapper>
+          <AnimatedWrapper x={-xyAnimation}>
             <NormText
-              marginTop="10px"
+              marginTop={marginTop10}
               maxWidth="680px"
               text="Сразу после свадьбы мы улетаем в свадебное путешествие, поэтому мы не успеем насладиться красотой подаренных цветов и будем рады, если вместо цветов вы решите подарить нам бутылочку хорошего вина"
             />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          </AnimatedWrapper>
+          <AnimatedWrapper>
             <Sizik />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          </AnimatedWrapper>
+          <AnimatedWrapper x={xyAnimation}>
             <NormText
-              marginTop="10px"
+              marginTop={marginTop10}
               maxWidth="550px"
               text="Если хотите подарить нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи"
             />
-          </motion.div>
-          <GuestForm xyAnimation={xyAnimation} duration={duration} />
-
+          </AnimatedWrapper>
+          <GuestForm xyAnimation={xyAnimation} />
           <div className="contacts">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration }}
-              viewport={{ once: true, amount: 1 }}
-            >
+            <AnimatedWrapper>
               <h1>Контакты</h1>
               <img
                 className="samoletik"
                 src="https://static.tildacdn.com/tild3266-6164-4261-b438-323265386237/Group_95_1.svg"
               />
-            </motion.div>
+            </AnimatedWrapper>
           </div>
-          <motion.div
-            initial={{ opacity: 0, x: -xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          <AnimatedWrapper x={-xyAnimation}>
             <NormText
               marginTop="30px"
-              maxWidth="520px"
+              maxWidth={maxWidthOne}
               text="Если вы приготовили для нас сюрприз, не забудьте предупредить об этом нашего свадебного организатора"
             />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
-            <NormText marginTop="20px" maxWidth="520px" text="Ольга: +7 (900) 000-00-00" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
+          </AnimatedWrapper>
+          <AnimatedWrapper x={xyAnimation}>
+            <NormText marginTop={marginTop20} maxWidth={maxWidthOne} text="Ольга: +7 (900) 000-00-00" />
+          </AnimatedWrapper>
+          <AnimatedWrapper>
             <a href="https://t.me/zilya_mv">
               <img
                 className="telega"
                 src="https://static.tildacdn.com/tild3136-3338-4235-b364-313135633861/Black_14.svg"
               />
             </a>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: xyAnimation }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 1 }}
-          >
-            <ZurText marginTop="90px" maxWidth="520px" text="Будем вас ждать!" />
-          </motion.div>
-          <motion.div
-            className="konets"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
+          </AnimatedWrapper>
+          <AnimatedWrapper x={xyAnimation}>
+            <ZurText marginTop="90px" maxWidth={maxWidthOne} text="Будем вас ждать!" />
+          </AnimatedWrapper>
+          <AnimatedWrapper className="konets" amount={0.5}>
             <img className="yorek" src={yorek} />
             <AnimatedPolaroid
               className="polaroid-anime"
@@ -328,7 +193,7 @@ function App() {
               label2="Айнур и Зиля"
               imageUrl={animePhoto}
             />
-          </motion.div>
+          </AnimatedWrapper>
         </div>
       )}
     </div>
