@@ -3,16 +3,16 @@ import "./ZurText.scss"
 const ZurText = ({
   text,
   maxWidth,
-  marginTop = "10px",
-  lineHeight = "81px",
+  marginTop,
+  lineHeight,
 }: {
   text: string
   maxWidth: string
   marginTop?: string
   lineHeight?: string
 }) => (
-  <div className="zur-text" style={{ maxWidth, textAlign: "center", lineHeight, fontFamily: "Pips" }}>
-    <h1 style={{ margin: "0", marginTop }}>{text}</h1>
+  <div className="zur-text" style={{ maxWidth, lineHeight }}>
+    <h1 style={{ marginTop }}>{text}</h1>
   </div>
 )
 

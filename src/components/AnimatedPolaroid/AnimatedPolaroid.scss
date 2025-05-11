@@ -3,6 +3,9 @@
   & .polaroid-wrapper {
     width: 430px;
     position: relative;
+    @media screen and (max-width: 639px) {
+      width: 210px;
+    }
 
     & .polaroid {
       position: relative;
@@ -10,7 +13,9 @@
       min-height: 490px;
       transform-origin: center;
       animation: smoothSway 7s ease-in-out infinite;
-
+      @media screen and (max-width: 639px) {
+        min-height: 225px;
+      }
       & .polaroid-frame,
       & .polaroid-photo {
         position: absolute;
@@ -18,26 +23,6 @@
         left: 0;
         width: 100%;
         height: auto;
-      }
-
-      & .labels {
-        &.two {
-          position: relative;
-          top: -5px;
-        }
-        & .polaroid-label {
-          width: 100%;
-          z-index: 2;
-          position: absolute;
-          top: 367px;
-          left: -4px;
-          text-align: center;
-          font-size: 27px;
-          font-weight: 800;
-        }
-        & .polaroid-label2 {
-          top: 391px;
-        }
       }
 
       & .polaroid-frame {
@@ -50,11 +35,51 @@
         position: absolute;
         top: 40px;
         left: 61px;
+
+        @media screen and (max-width: 639px) {
+          width: 141px;
+          top: 20px;
+          left: 30px;
+        }
       }
 
-      & .polaroid-photo {
-        top: 40px;
+      & .labels {
+        &.two {
+          position: relative;
+          top: -5px;
+
+          @media screen and (max-width: 639px) {
+            top: -4px;
+
+            & .polaroid-label,
+            & .polaroid-label2 {
+              font-size: 9px;
+            }
+          }
+        }
+        & .polaroid-label {
+          width: 100%;
+          z-index: 2;
+          position: absolute;
+          top: 367px;
+          left: -4px;
+          text-align: center;
+          font-size: 27px;
+          font-weight: 800;
+
+          @media screen and (max-width: 639px) {
+            top: 179px;
+            font-size: 16px;
+          }
+        }
+        & .polaroid-label2 {
+          top: 391px;
+          @media screen and (max-width: 639px) {
+            top: 195px;
+          }
+        }
       }
+
       & .polaroid-label,
       & .polaroid-label2 {
         font-size: 27px;
@@ -70,14 +95,31 @@
         top: 50px;
       }
     }
+    @media screen and (max-width: 639px) {
+      top: 71px;
+      & .polaroid-wrapper {
+        left: -80px;
+        & .polaroid-photo {
+          top: 24px;
+        }
+      }
+    }
   }
+
   &.polaroid-zilya {
     top: -385px;
     transform: rotate(10deg);
+
     & .polaroid-wrapper {
       left: 165px;
       & .polaroid {
         animation: smoothSway 7s ease-in-out infinite 0.7s;
+      }
+    }
+    @media screen and (max-width: 639px) {
+      top: -80px;
+      & .polaroid-wrapper {
+        left: 85px;
       }
     }
   }
@@ -86,9 +128,24 @@
     transform: rotate(-10deg);
     & .polaroid-wrapper {
       left: 0px;
+      @media screen and (max-width: 639px) {
+        width: 295px;
+        .polaroid-photo {
+          width: 200px;
+          top: 33px;
+          left: 42px;
+        }
+      }
       & .labels {
         & .polaroid-label {
           font-size: 18px;
+
+          @media screen and (max-width: 639px) {
+            width: 200px;
+            top: 254px;
+            left: 42px;
+            font-size: 16px;
+          }
         }
       }
     }
@@ -98,13 +155,36 @@
     transform: rotate(-1deg);
     & .polaroid-wrapper {
       left: 0px;
+      @media screen and (max-width: 639px) {
+        width: 295px;
+        .polaroid-photo {
+          width: 200px;
+          top: 33px;
+          left: 42px;
+        }
+      }
       & .polaroid {
         animation: none;
-      }
-      & .labels {
-        & .polaroid-label,
-        & .polaroid-label2 {
-          font-size: 18px;
+        & .labels {
+          & .polaroid-label,
+          & .polaroid-label2 {
+            font-size: 18px;
+
+            @media screen and (max-width: 639px) {
+              width: 200px;
+              font-size: 12px;
+            }
+          }
+          @media screen and (max-width: 639px) {
+            & .polaroid-label {
+              top: 253px;
+              left: 42px;
+            }
+            & .polaroid-label2 {
+              top: 270px;
+              left: 42px;
+            }
+          }
         }
       }
     }
@@ -114,10 +194,35 @@
     transform: rotate(-1deg);
     & .polaroid-wrapper {
       left: 0px;
-      & .labels {
-        & .polaroid-label,
-        & .polaroid-label2 {
-          font-size: 18px;
+      @media screen and (max-width: 639px) {
+        width: 295px;
+        .polaroid-photo {
+          width: 200px;
+          top: 33px;
+          left: 42px;
+        }
+      }
+      .polaroid {
+        & .labels {
+          & .polaroid-label,
+          & .polaroid-label2 {
+            font-size: 18px;
+
+            @media screen and (max-width: 639px) {
+              width: 200px;
+              font-size: 14px;
+            }
+          }
+          @media screen and (max-width: 639px) {
+            & .polaroid-label {
+              top: 253px;
+              left: 42px;
+            }
+            & .polaroid-label2 {
+              top: 270px;
+              left: 42px;
+            }
+          }
         }
       }
     }

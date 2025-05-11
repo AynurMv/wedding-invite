@@ -1,0 +1,47 @@
+#music-toggle button {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #253759;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 23px;
+  color: #253759;
+  z-index: 2;
+
+  img {
+    width: 35px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+  }
+
+  @media screen and (max-width: 639px) {
+    height: 36px;
+    width: 36px;
+    top: 16px;
+    right: 16px;
+    font-size: 20px;
+
+    img {
+      width: 22px;
+    }
+
+    div {
+      font-size: 20px;
+    }
+  }
+}
+#music-toggle button:hover {
+  background: rgba(141, 141, 141, 0.1);
+}

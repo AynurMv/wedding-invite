@@ -1,0 +1,13 @@
+.zur-text {
+  text-align: center;
+  font-family: Pips;
+  margin-top: 10px;
+  line-height: 81px;
+  h1 {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 639px) {
+    line-height: normal;
+  }
+}

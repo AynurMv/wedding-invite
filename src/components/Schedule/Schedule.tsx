@@ -1,5 +1,5 @@
 import { FC } from "react"
-import "./Schedule.css"
+import "./Schedule.scss"
 import AnimatedWrapper from "../AnimatedWrapper"
 const Schedule: FC<{ xyAnimation: number }> = ({ xyAnimation }) => {
   const lessXYAnimation = xyAnimation - 15

@@ -16,6 +16,10 @@
   justify-content: center;
   width: fit-content;
   max-width: 100%;
+
+  @media screen and (max-width: 639px) {
+    height: 46px;
+  }
 }
 
 .route-button.submit {

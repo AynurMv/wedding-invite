@@ -23,11 +23,21 @@
         font-weight: 500;
       }
 
+      @media screen and (max-width: 639px) {
+        h1 {
+          font-size: 34px;
+        }
+      }
+
       .polaroids-container {
         display: block;
         height: 530px;
         position: relative;
         top: -33px;
+
+        @media screen and (max-width: 639px) {
+          height: 320px;
+        }
       }
 
       .contacts {
@@ -74,6 +84,10 @@
         left: 400px;
         top: -40px;
         animation: fastSmoothSway 5s ease-in-out infinite;
+
+        @media screen and (max-width: 639px) {
+          left: 245px;
+        }
       }
     }
   }

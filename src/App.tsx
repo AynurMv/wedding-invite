@@ -5,6 +5,7 @@ import animePhoto from "./assets/photo/anime.jpg"
 import aynurbekPhoto from "./assets/photo/Aynurbek2.png"
 import ikeuPhoto from "./assets/photo/ikeu.jpg"
 import zilyousssPhoto from "./assets/photo/zilechka.jpg"
+import AudioPlayer from "./AudioPlayer/AudioPlayer"
 import AnimatedPolaroid from "./components/AnimatedPolaroid"
 import AnimatedWrapper from "./components/AnimatedWrapper"
 import Button from "./components/Button/Button"
@@ -19,7 +20,25 @@ import ZurText from "./components/ZurText/ZurText"
 import "./App.scss"
 
 function App() {
-  const [animationCompleted, setAnimationCompleted] = useState(false)
+  const [animationCompleted, setAnimationCompleted] = useState(true)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  // Обновляем ширину при изменении размера
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth)
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  const isSmallScreen = windowWidth < 640
+
+  const textMaxWidthOne = isSmallScreen ? "280px" : "420px"
+  const maxWidthOne = isSmallScreen ? "350px" : "520px"
+  const maxWidthTwo = isSmallScreen ? "390px" : "580px"
+
+  const marginTop10 = isSmallScreen ? "7px" : "10px"
+  const marginTop20 = isSmallScreen ? "15px" : "20px"
+  const marginTop100 = isSmallScreen ? "70px" : "100px"
 
   useEffect(() => {
     const timer = setTimeout(() => setAnimationCompleted(true), 5000)
@@ -29,22 +48,15 @@ function App() {
   const xyAnimation = 30
   const scale = 0.9
 
-  const textMaxWidthOne = "420px"
-  const maxWidthOne = "520px"
-  const maxWidthTwo = "580px"
-
-  const marginTop10 = "10px"
-  const marginTop20 = "20px"
-  const marginTop100 = "100px"
-
   return (
     <div className="app">
       {!animationCompleted ? (
         <TypingAnimation />
       ) : (
         <div className={`content ${animationCompleted ? "visible" : ""}`}>
+          <AudioPlayer />
           <div className="polaroids-container">
-            <AnimatedWrapper x={-xyAnimation}>
+            <AnimatedWrapper x={-xyAnimation} amount={0.1}>
               <AnimatedPolaroid label="Айнур" className="polaroid-aynur" imageUrl={aynurbekPhoto} />
             </AnimatedWrapper>
             <AnimatedWrapper x={xyAnimation} amount={0.1}>
@@ -77,7 +89,11 @@ function App() {
           </AnimatedWrapper>
           <AnimatedPolaroid className="polaroid-ikeu" label="Сердца полны любви" imageUrl={ikeuPhoto} />
           <AnimatedWrapper x={-xyAnimation}>
-            <ZurText marginTop={marginTop20} maxWidth={maxWidthOne} text="Дорогие и любимые" />
+            <ZurText
+              marginTop={isSmallScreen ? "150px" : "20px"}
+              maxWidth={maxWidthOne}
+              text="Дорогие и любимые"
+            />
           </AnimatedWrapper>
           <AnimatedWrapper x={xyAnimation}>
             <NormText
@@ -105,8 +121,8 @@ function App() {
           </AnimatedWrapper>
           <AnimatedWrapper x={xyAnimation}>
             <NormText
-              marginTop="0px"
-              maxWidth="320px"
+              marginTop={isSmallScreen ? "85px" : "0px"}
+              maxWidth={isSmallScreen ? "245px" : "320px"}
               text="Мы ждем вас на берегу озера Сенеж в загородном комплексе The Sun Event"
             />
           </AnimatedWrapper>
