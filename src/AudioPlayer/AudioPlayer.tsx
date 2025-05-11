@@ -1,30 +1,41 @@
-/* eslint-disable sonarjs/no-commented-code */
-import pause from "@assets/kartinki/pause.svg"
-import { useRef, useState } from "react"
+import musicTrack from "@assets/Dzho_Kiri_End_of_Beginning.mp3"
+import pauseIcon from "@assets/kartinki/pause.svg"
+import playIcon from "@assets/kartinki/play.svg"
+import { useRef, useState, useEffect } from "react"
 import "./AudioPlayer.scss"
 
 const AudioPlayer = () => {
-  const audioRef = useRef(null)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [isPlaying, setIsPlaying] = useState(true)
 
   const togglePlay = () => {
     const audio = audioRef.current
     if (!audio) return
 
-    // if (isPlaying) {
-    //   audio.pause()
-    // } else {
-    //   audio.play()
-    // }
+    if (isPlaying) {
+      audio.pause()
+    } else {
+      audio.play()
+    }
 
-    setIsPlaying(!isPlaying)
+    setIsPlaying((prev) => !prev)
   }
+
+  useEffect(() => {
+    togglePlay()
+    const audio = audioRef.current
+    if (!audio) return
+
+    const handleEnded = () => setIsPlaying(false)
+    audio.addEventListener("ended", handleEnded)
+    return () => audio.removeEventListener("ended", handleEnded)
+  }, [])
 
   return (
     <div id="music-toggle">
-      <audio ref={audioRef} src="/your-audio-file.mp3" preload="auto" />
-      <button aria-label="Включить музыку" onClick={togglePlay}>
-        {isPlaying ? <img src={pause} /> : <div>♪</div>}
+      <audio ref={audioRef} src={musicTrack} preload="auto" loop={false} />
+      <button type="button" onClick={togglePlay}>
+        <img src={isPlaying ? pauseIcon : playIcon} />
       </button>
     </div>
   )
