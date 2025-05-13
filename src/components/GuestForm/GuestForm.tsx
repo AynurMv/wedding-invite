@@ -15,7 +15,8 @@ type FormData = {
 const GuestForm: FC<{
   extraClassName?: string
   xyAnimation: number
-}> = ({ xyAnimation }) => {
+  isSmallScreen: boolean
+}> = ({ xyAnimation, isSmallScreen }) => {
   const [form, setForm] = useState<FormData>({
     name: "",
     attendance: "",
@@ -60,7 +61,6 @@ const GuestForm: FC<{
         animate={{ opacity: 1, height: "auto" }}
         exit={{ opacity: 0, height: 0 }}
         transition={{ duration: 0.5 }}
-        className={`guest-form ${isSubmitted ? "" : "visible"}`}
       >
         {isSubmitted ? (
           <div className="success">
@@ -79,7 +79,7 @@ const GuestForm: FC<{
             <AnimatedWrapper x={xyAnimation}>
               <NormText
                 marginTop="10px"
-                maxWidth="421px"
+                maxWidth={isSmallScreen ? "315px" : "421px"}
                 text="Просим вас ответить на несколько вопросов до 20 июля, это поможет нам в организации торжества"
               />
             </AnimatedWrapper>

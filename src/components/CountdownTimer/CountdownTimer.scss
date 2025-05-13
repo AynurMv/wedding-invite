@@ -1,0 +1,33 @@
+.app {
+  .content.visible {
+    .countdown {
+      text-align: center;
+
+      h1,
+      p {
+        font-size: 36px;
+        line-height: 45px;
+
+        @media screen and (max-width: 639px) {
+          font-size: 23px;
+          line-height: 30px;
+        }
+      }
+      .inline-text {
+        margin-top: 10px;
+        p {
+          display: inline-block;
+          margin: 0;
+        }
+
+        .seconds {
+          width: 3ch;
+        }
+
+        .second-form {
+          width: 7ch;
+        }
+      }
+    }
+  }
+}

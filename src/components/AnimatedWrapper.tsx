@@ -10,7 +10,7 @@ interface AnimatedWrapperProps {
   delay?: number
   amount?: number
   className?: string
-  relative?: boolean
+  style?: object
 }
 
 const AnimatedWrapper = ({
@@ -19,10 +19,10 @@ const AnimatedWrapper = ({
   y = 0,
   scale = 1,
   duration = 1,
-  delay = 0,
+  delay = 0.5,
   amount = 0.9,
   className = "",
-  relative,
+  style = {},
 }: AnimatedWrapperProps) => {
   return (
     <motion.div
@@ -31,7 +31,7 @@ const AnimatedWrapper = ({
       whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
       transition={{ duration, delay }}
       viewport={{ once: true, amount }}
-      style={relative ? { position: "relative" } : {}}
+      style={style}
     >
       {children}
     </motion.div>

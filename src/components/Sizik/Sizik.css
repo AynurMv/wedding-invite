@@ -1,4 +1,10 @@
 .sizik {
   margin: 40px;
   width: 400px;
+
+  @media screen and (max-width: 639px) {
+    margin-top: 23px;
+    margin-bottom: 10px;
+    width: 230px;
+  }
 }

@@ -20,6 +20,7 @@
 
     img {
       width: 35px;
+      position: relative;
     }
 
     &:hover {
@@ -36,6 +37,13 @@
       img {
         width: 22px;
       }
+    }
+  }
+  .play img {
+    left: 3px;
+
+    @media screen and (max-width: 639px) {
+      left: 1px;
     }
   }
 }

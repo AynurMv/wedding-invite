@@ -9,6 +9,14 @@
   left: -66px;
   width: 336px;
   @media screen and (max-width: 639px) {
-    width: 275px;
+    width: 240px;
+    left: -40px;
+    top: -10px;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .app .content.visible .date h1 {
+    font-size: 40px;
   }
 }

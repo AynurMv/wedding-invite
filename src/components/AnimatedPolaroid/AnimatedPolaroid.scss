@@ -153,6 +153,10 @@
   &.polaroid-bolgar {
     top: -20px;
     transform: rotate(-1deg);
+
+    @media screen and (max-width: 639px) {
+      top: 0px;
+    }
     & .polaroid-wrapper {
       left: 0px;
       @media screen and (max-width: 639px) {
@@ -191,13 +195,20 @@
   }
   &.polaroid-anime {
     top: 20px;
-    transform: rotate(-1deg);
+    transform: rotate(7deg);
+
+    @media screen and (max-width: 639px) {
+      top: 44px;
+      left: 16px;
+      margin-bottom: 220px;
+    }
     & .polaroid-wrapper {
       left: 0px;
+
       @media screen and (max-width: 639px) {
-        width: 295px;
+        width: 333px;
         .polaroid-photo {
-          width: 200px;
+          width: 230px;
           top: 33px;
           left: 42px;
         }
@@ -210,17 +221,18 @@
 
             @media screen and (max-width: 639px) {
               width: 200px;
-              font-size: 14px;
+              font-size: 16px;
             }
           }
+
           @media screen and (max-width: 639px) {
             & .polaroid-label {
-              top: 253px;
-              left: 42px;
+              top: 280px;
+              left: 62px;
             }
             & .polaroid-label2 {
-              top: 270px;
-              left: 42px;
+              top: 302px;
+              left: 60px;
             }
           }
         }

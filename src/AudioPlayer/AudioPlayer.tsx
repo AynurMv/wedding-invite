@@ -34,7 +34,7 @@ const AudioPlayer = () => {
   return (
     <div id="music-toggle">
       <audio ref={audioRef} src={musicTrack} preload="auto" loop={false} />
-      <button type="button" onClick={togglePlay}>
+      <button className={isPlaying ? "pause" : "play"} type="button" onClick={togglePlay}>
         <img src={isPlaying ? pauseIcon : playIcon} />
       </button>
     </div>

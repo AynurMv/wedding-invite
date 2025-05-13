@@ -1,5 +1,6 @@
 .app {
   font-family: "Pips";
+  overflow-x: clip;
   color: #253759;
   position: relative;
   display: flex;
@@ -25,7 +26,7 @@
 
       @media screen and (max-width: 639px) {
         h1 {
-          font-size: 34px;
+          font-size: 30px;
         }
       }
 
@@ -50,12 +51,23 @@
         h1 {
           margin: 0;
           margin-top: 100px;
+
+          @media screen and (max-width: 639px) {
+            margin-top: 65px;
+          }
         }
         .samoletik {
           width: 100px;
           position: absolute;
           top: 105px;
           left: 200px;
+          animation: fastSmoothSway 15s ease-in-out infinite;
+
+          @media screen and (max-width: 639px) {
+            width: 80px;
+            top: 82px;
+            left: 116px;
+          }
         }
       }
 
@@ -74,19 +86,33 @@
         & .yorek {
           position: relative;
           top: 20px;
-          animation: fastSmoothSway 5s ease-in-out infinite;
+          animation: fastSmoothSway 7s ease-in-out infinite;
+
+          @media screen and (max-width: 639px) {
+            width: 67px;
+          }
         }
       }
 
       .yildiz {
         position: absolute;
         width: 50px;
-        left: 400px;
-        top: -40px;
+        left: 170px;
+        top: -28px;
         animation: fastSmoothSway 5s ease-in-out infinite;
 
         @media screen and (max-width: 639px) {
-          left: 245px;
+          left: 100px;
+          top: -20px;
+          width: 41px;
+        }
+      }
+
+      .kursiv h4 {
+        font-family: Pips;
+
+        @media screen and (max-width: 639px) {
+          font-size: 25px;
         }
       }
     }
@@ -101,6 +127,19 @@
   50% {
     transform: rotate(10deg);
   }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000000;
 }
 
 @font-face {

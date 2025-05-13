@@ -1,0 +1,16 @@
+.norm {
+  margin: 0 20px;
+  text-align: center;
+
+  h4 {
+    font-family: "Museo";
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 34px;
+
+    @media screen and (max-width: 639px) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+}
