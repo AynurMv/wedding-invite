@@ -77,20 +77,14 @@
         width: 54px;
       }
 
-      .konets {
-        display: flex;
-        opacity: 1;
-        align-items: center;
-        flex-direction: column;
+      & .yorek {
+        position: relative;
+        top: 20px;
+        animation: fastSmoothSway 7s ease-in-out infinite 1s;
 
-        & .yorek {
-          position: relative;
-          top: 20px;
-          animation: fastSmoothSway 7s ease-in-out infinite;
-
-          @media screen and (max-width: 639px) {
-            width: 67px;
-          }
+        @media screen and (max-width: 639px) {
+          width: 67px;
+          top: 28px;
         }
       }
 

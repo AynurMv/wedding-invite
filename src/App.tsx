@@ -6,12 +6,13 @@ import animePhoto from "./assets/photo/anime.jpg"
 import aynurbekPhoto from "./assets/photo/Aynurbek2.png"
 import ikeuPhoto from "./assets/photo/ikeu.jpg"
 import zilyousssPhoto from "./assets/photo/zilechka.jpg"
-import AudioPlayer from "./AudioPlayer/AudioPlayer"
 import AnimatedPolaroid from "./components/AnimatedPolaroid"
 import AnimatedWrapper from "./components/AnimatedWrapper"
+import AudioPlayer from "./components/AudioPlayer/AudioPlayer"
 import Button from "./components/Button/Button"
 import CountdownTimer from "./components/CountdownTimer/CountdownTimer"
 import DateWithRound from "./components/DateWithRound/DateWithRound"
+import EnvelopeInviteAnimation from "./components/EnvelopeInviteAnimation/EnvelopeInviteAnimation"
 import GuestForm from "./components/GuestForm/GuestForm"
 import NormText from "./components/NormText/NormText"
 import Schedule from "./components/Schedule/Schedule"
@@ -22,7 +23,7 @@ import ZurText from "./components/ZurText/ZurText"
 import "./App.scss"
 
 function App() {
-  const [animationCompleted, setAnimationCompleted] = useState(true)
+  const [animationCompleted, setAnimationCompleted] = useState(false)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   // Обновляем ширину при изменении размера
@@ -59,7 +60,10 @@ function App() {
   return (
     <div className="app">
       {!animationCompleted ? (
-        <TypingAnimation />
+        <div>
+          <TypingAnimation isSmallScreen={isSmallScreen} />
+          <EnvelopeInviteAnimation onOpenComplete={() => console.log("loh pidr")} />
+        </div>
       ) : (
         <div className={`content ${animationCompleted ? "visible" : ""}`}>
           <AudioPlayer />
@@ -126,11 +130,7 @@ function App() {
           </AnimatedWrapper>
           <Schedule xyAnimation={xyAnimation} />
           <AnimatedWrapper y={-xyAnimation}>
-            <ZurText
-              marginTop={isSmallScreen ? "200px" : "131px"}
-              maxWidth={maxWidthOne}
-              text="Место проведения"
-            />
+            <ZurText marginTop="131px" maxWidth={maxWidthOne} text="Место проведения" />
           </AnimatedWrapper>
           <AnimatedWrapper amount={0.5}>
             <AnimatedPolaroid
@@ -227,8 +227,10 @@ function App() {
             maxWidthOne={maxWidthOne}
             xyAnimation={xyAnimation}
           />
-          <AnimatedWrapper className="konets" amount={0.5}>
+          <AnimatedWrapper y={xyAnimation}>
             <img className="yorek" src={yorek} />
+          </AnimatedWrapper>
+          <AnimatedWrapper className="konets" amount={0.5} delay={1}>
             <AnimatedPolaroid
               className="polaroid-anime"
               label="С большой любовью,"

@@ -17,7 +17,6 @@ const AudioPlayer = () => {
     } else {
       audio.play()
     }
-
     setIsPlaying((prev) => !prev)
   }
 
@@ -25,7 +24,6 @@ const AudioPlayer = () => {
     togglePlay()
     const audio = audioRef.current
     if (!audio) return
-
     const handleEnded = () => setIsPlaying(false)
     audio.addEventListener("ended", handleEnded)
     return () => audio.removeEventListener("ended", handleEnded)

@@ -65,7 +65,7 @@ const CountdownTimer = ({ target, maxWidthOne, xyAnimation }: CountdownTimerProp
   const secondForm = pluralize(seconds, ["секунду", "секунды", "секунд"])
 
   return (
-    <AnimatedWrapper x={xyAnimation} className="countdown">
+    <AnimatedWrapper duration={2} delay={1} className="countdown">
       <ZurText marginTop="90px" maxWidth={maxWidthOne} text={`Ждём вас через ${days} ${dayForm}`} />
       <ZurText
         marginTop="0px"

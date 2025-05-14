@@ -7,6 +7,10 @@
   justify-content: center;
   height: 80vh;
 
+  @media screen and (max-width: 639px) {
+    font-size: 30px;
+  }
+
   .type-writter {
     position: relative;
     top: -75px;

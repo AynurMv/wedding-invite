@@ -194,11 +194,11 @@
     }
   }
   &.polaroid-anime {
-    top: 20px;
+    top: 50px;
     transform: rotate(7deg);
 
     @media screen and (max-width: 639px) {
-      top: 44px;
+      top: 64px;
       left: 16px;
       margin-bottom: 220px;
     }
