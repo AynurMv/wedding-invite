@@ -1,7 +1,13 @@
+/* eslint-disable import/no-relative-parent-imports */
 import { motion, AnimatePresence } from "framer-motion"
+import Lottie from "lottie-react"
 import { useState, useEffect } from "react"
-import "./EnvelopeInviteAnimation.scss"
-// import TypingAnimation from "../TypingAnimation/TypingAnimation"
+import styles from "./EnvelopeInviteAnimation.module.scss"
+import envelopeAnimation from "../../assets/kartinki/envelope-animation.json"
+// import heartAnimation from "../../assets/kartinki/yorek-animation.json"
+// import ringsAnimation from "../../assets/kartinki/rings-animation.json"
+
+import TypingAnimation from "../TypingAnimation/TypingAnimation"
 
 interface EnvelopeInviteAnimationProps {
   isSmallScreen: boolean
@@ -19,64 +25,27 @@ const EnvelopeInviteAnimation = ({ isSmallScreen, onOpenComplete }: EnvelopeInvi
   }, [isOpened, onOpenComplete])
 
   const handleClick = () => setIsOpened(true)
-  console.log(isSmallScreen)
-  return (
-    <div className="envelope-container">
-      {/* <TypingAnimation isSmallScreen={isSmallScreen} /> */}
 
+  return (
+    <div className={styles.container}>
       <AnimatePresence>
         {!isOpened && (
-          <motion.div
-            key="envelope"
-            className="envelope"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.5 }}
-          >
+          <>
             <motion.div
-              className="envelope-bottom"
-              initial={{ scaleY: 0 }}
-              animate={{ scaleY: 1 }}
-              exit={{ scaleY: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              style={{ transformOrigin: "bottom" }}
-            />
-            <motion.div
-              className="envelope-flap"
-              initial={{ rotateX: 0 }}
-              animate={{ rotateX: 0 }}
-              exit={{ rotateX: -120 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              style={{ transformOrigin: "top center" }}
-            />
-            <motion.button
-              className="open-button"
-              onClick={handleClick}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              key="envelope"
+              className={styles.envelope}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 2 }}
+              transition={{ duration: 0.5 }}
             >
-              💌 Открыть приглашение
-            </motion.button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {isOpened && (
-          <motion.div
-            key="content"
-            className="content-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            {/* Тут можно вставить TypingAnimation или основной контент */}
-          </motion.div>
+              <TypingAnimation isSmallScreen={isSmallScreen} />
+              <div className={styles.svg} onClick={handleClick}>
+                {/* <Lottie className={styles.svgRings} animationData={ringsAnimation} loop={true} /> */}
+                <Lottie className={styles.svgEnvelope} animationData={envelopeAnimation} loop={true} />
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </div>

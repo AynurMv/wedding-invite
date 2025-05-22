@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import ContentPage from "./components/ContentPage/ContentPage"
 import EnvelopeInviteAnimation from "./components/EnvelopeInviteAnimation/EnvelopeInviteAnimation"
 import "./App.scss"
@@ -6,6 +6,20 @@ import "./App.scss"
 function App() {
   const [animationCompleted, setAnimationCompleted] = useState(false)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  const togglePlay = () => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    if (isPlaying) {
+      audio.pause()
+    } else {
+      audio.play()
+    }
+    setIsPlaying((prev) => !prev)
+  }
 
   // Обновляем ширину при изменении размера
   useEffect(() => {
@@ -16,20 +30,25 @@ function App() {
 
   const isSmallScreen = windowWidth < 640
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => setAnimationCompleted(true), 5000)
-  //   return () => clearTimeout(timer)
-  // }, [])
-
   return (
     <div className="app">
       {!animationCompleted ? (
         <EnvelopeInviteAnimation
           isSmallScreen={isSmallScreen}
-          onOpenComplete={() => setAnimationCompleted(true)}
+          onOpenComplete={() => {
+            setAnimationCompleted(true)
+            togglePlay()
+          }}
         />
       ) : (
-        <ContentPage isSmallScreen={isSmallScreen} animationCompleted={animationCompleted} />
+        <ContentPage
+          isSmallScreen={isSmallScreen}
+          animationCompleted={animationCompleted}
+          togglePlay={togglePlay}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          audioRef={audioRef}
+        />
       )}
     </div>
   )

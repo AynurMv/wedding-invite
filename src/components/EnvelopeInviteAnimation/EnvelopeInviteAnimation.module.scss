@@ -1,0 +1,48 @@
+$bg: #fff;
+$shadow: rgba(0, 0, 0, 0.1);
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  background: $bg;
+  position: relative;
+  overflow: hidden;
+
+  .envelope {
+    width: 320px;
+    height: auto;
+    perspective: 1000px;
+    cursor: pointer;
+
+    .svg {
+      width: 100%;
+      height: auto;
+      margin-top: 19vh;
+      filter: drop-shadow(0 4px 8px $shadow);
+      transition: all 0.3s ease-in-out;
+
+      @media screen and (max-width: 639px) {
+        margin-top: 22vh;
+      }
+
+      .svgHeart {
+        width: 110px;
+        position: relative;
+        top: 147px;
+        left: 99px;
+        z-index: 1;
+      }
+      .svgRings {
+        width: 110px;
+        position: relative;
+        top: 147px;
+        left: 99px;
+        z-index: 1;
+      }
+    }
+  }
+}

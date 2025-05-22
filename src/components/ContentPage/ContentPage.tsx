@@ -4,7 +4,7 @@ import aynurbekPhoto from "@assets/photo/Aynurbek2.png"
 import bolgarPhoto from "@assets/photo/bolgar.jpg"
 import ikeuPhoto from "@assets/photo/ikeu.jpg"
 import zilyousssPhoto from "@assets/photo/zilechka.jpg"
-import { FC } from "react"
+import { Dispatch, FC, RefObject, SetStateAction } from "react"
 import AnimatedPolaroid from "../AnimatedPolaroid"
 import AnimatedWrapper from "../AnimatedWrapper"
 import AudioPlayer from "../AudioPlayer/AudioPlayer"
@@ -21,10 +21,21 @@ import ZurText from "../ZurText/ZurText"
 type ContentPagePropsType = {
   isSmallScreen: boolean
   animationCompleted: boolean
+  togglePlay: () => void
+  isPlaying: boolean
+  setIsPlaying: Dispatch<SetStateAction<boolean>>
+  audioRef: RefObject<HTMLAudioElement | null>
 }
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
-const ContentPage: FC<ContentPagePropsType> = ({ isSmallScreen, animationCompleted }) => {
+const ContentPage: FC<ContentPagePropsType> = ({
+  isSmallScreen,
+  animationCompleted,
+  togglePlay,
+  isPlaying,
+  setIsPlaying,
+  audioRef,
+  // eslint-disable-next-line sonarjs/cognitive-complexity
+}) => {
   const textMaxWidthOne = isSmallScreen ? "280px" : "420px"
   const maxWidthOne = isSmallScreen ? "350px" : "520px"
   const maxWidthTwo = isSmallScreen ? "350px" : "580px"
@@ -44,7 +55,12 @@ const ContentPage: FC<ContentPagePropsType> = ({ isSmallScreen, animationComplet
 
   return (
     <div className={`content ${animationCompleted ? "visible" : ""}`}>
-      <AudioPlayer />
+      <AudioPlayer
+        togglePlay={togglePlay}
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+        audioRef={audioRef}
+      />
       <div className="polaroids-container">
         <AnimatedWrapper x={-xyAnimation} amount={0.1}>
           <AnimatedPolaroid label="Айнур" className="polaroid-aynur" imageUrl={aynurbekPhoto} />
